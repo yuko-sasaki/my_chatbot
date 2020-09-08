@@ -49,7 +49,7 @@ from tensorflow.keras import optimizers
 for max_norm in [0.01, 0.05, 0.1, 0.5, 1.0]:
     model = Sequential()
     model.add(SimpleRNN(n_mid, input_shape=(n_rnn, n_in), return_sequences=True))
-    model.add(Dense(n_out,activation="linear"))# 活性化関数：恒等関数
+    model.add(Dense(n_out, activation="linear"))# 活性化関数：恒等関数
     model.compile(loss="mean_squared_error", optimizer=optimizers.SGD(clipnorm=max_norm))# 損失関数：二条誤差、最適化アルゴリズム：SGD
     history = model.fit(x, t, epochs=epochs, batch_size=batch_size, verbose=0)
 
