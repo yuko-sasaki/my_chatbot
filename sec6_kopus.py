@@ -1,7 +1,7 @@
 import re
 import pickle
 
-with open("gingatetsudono_yoru.txt", mode='r', encoding="utf-8") as f:
+with open("dataset/gingatetsudono_yoru.txt", mode='r', encoding="utf-8") as f:
     ginga_original = f.read()
 
 ginga = re.sub("《[^《]+》", "", ginga_original)
@@ -19,10 +19,10 @@ ginga_list.pop()
 ginga_list = [ ginga_text + seperator for ginga_text in ginga_list]
 
 
-with open("ginga_list.pickle", mode='wb') as f:
+with open("dataset/ginga_list.pickle", mode='wb') as f:
     pickle.dump(ginga_list, f)
 
-with open("ginga_list.pickle", mode='rb') as f:
+with open("dataset/ginga_list.pickle", mode='rb') as f:
     ginga_list = pickle.load(f)
 
 print(ginga_list)

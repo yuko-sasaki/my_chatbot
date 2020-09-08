@@ -35,14 +35,18 @@ with open("dataset/ginga_list.pickle", mode='rb') as f:
     ginga_list = pickle.load(f)
 ginga_words = []
 for ginga_sentence in ginga_list:
-    ginga_words += make_wakati_list(ginga_sentence)
+    ginga_words.append(make_wakati_list(ginga_sentence))
 
+with open("dataset/ginga_words.pickle", mode='wb') as f:
+    pickle.dump(ginga_words, f)
+
+with open("dataset/ginga_words.pickle", mode='rb') as f:
+    ginga_words = pickle.load(f)
+print(ginga_words)
+print(type(ginga_words))
+
+"""
 c = collections.Counter(ginga_words)
-
 with open("dataset/ginga_words_c.pickle", mode='wb') as f:
     pickle.dump(c, f)
-
-with open("dataset/ginga_words_c.pickle", mode='rb') as f:
-    c = pickle.load(f)
-print(c)
-print(type(c))
+"""
